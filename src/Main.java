@@ -1,27 +1,19 @@
-import entities.Pet;
-import entities.TYPE;
-import service.PetService;
+import entities.Bill;
+import entities.Customer;
+import service.BillService;
+import service.CustomerService;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
-    private static Enum TYPE;
-
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        /*service.AccountService accountService=new service.AccountService();
-        entities.Account account= accountService.inputInfo(scanner);
-        account.display();
-        account.changeEmail(scanner);
-        account.recharge(scanner);
-        account.display();*/
-        /*PetService petService = new PetService();
-        Pet pet=petService.inputInfo(scanner,TYPE);
-        ArrayList<Pet> pets=new ArrayList<>();
-        pets.add(pet);*/
-
-
+        ArrayList<Customer> customers=new ArrayList<>();
+        ArrayList<Bill> bills=new ArrayList<>();
+        BillService billService=new BillService();
+        CustomerService customerService=new CustomerService();
+        customerService.addCustomerList(scanner,customers);
+        billService.inputBillInfo(scanner,customers,bills);
     }
 }
